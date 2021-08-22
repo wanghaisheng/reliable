@@ -28,6 +28,8 @@ const GlobalStyle = ({ children }) => {
       <Global
         styles={css`
 
+          @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&display=swap');
+
           *{
             letter-spacing: -0.5px;
           }
