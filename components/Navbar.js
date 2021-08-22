@@ -15,7 +15,7 @@ const Navbar = ({ children }) => {
             <Flex direction="row" align="center">
               <Icon color="black" name="logo" size="30px" mb={2} />
               <Text fontFamily="Work Sans" letterSpacing="-1px" ml='5px' fontWeight="medium" fontSize="20px">Reliable</Text>
-              <Badge fontSize="0.5em" ml={2}>beta</Badge>
+              <Badge fontSize="0.5em" ml={2}>alpha</Badge>
             </Flex>
           </Link>
         </NextLink>

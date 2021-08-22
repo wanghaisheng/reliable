@@ -40,6 +40,14 @@ const GlobalStyle = ({ children }) => {
             scroll-behavior: smooth;
           }
 
+          img {
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+          }
+
           #__next {
             display: flex;
             flex-direction: column;

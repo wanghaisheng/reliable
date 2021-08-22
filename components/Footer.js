@@ -23,6 +23,11 @@ const Footer = () => {
           Documentation
         </Link>
       </NextLink>
+      <NextLink href="/tarifs" passHref>
+        <Link fontSize="sm" mr={4} fontWeight="medium" color="gray.500">
+          Tarifs
+        </Link>
+      </NextLink>
       <NextLink href="/" passHref>
         <Link fontSize="sm" mr={4} fontWeight="medium" color="gray.500">
           Accueil

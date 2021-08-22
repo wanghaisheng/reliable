@@ -34,8 +34,8 @@ const FeedbackUsage = () => {
         <StatNumber fontWeight="medium">{nbFeedback}/∞</StatNumber>
         <StatHelpText>
           Aucune limitation 
-          <Tooltip placement="top" label="Cette fonctionnalité est suceptible de changer après la Beta.">
-            <Badge fontSize="0.6em">beta</Badge>
+          <Tooltip placement="top" label="Cette fonctionnalité est suceptible de changer après la Alpha.">
+            <Badge fontSize="0.6em">alpha</Badge>
           </Tooltip>
         </StatHelpText>
       </Stat>
@@ -45,8 +45,8 @@ const FeedbackUsage = () => {
         <StatNumber fontWeight="medium">1/∞</StatNumber>
         <StatHelpText>
           Aucune limitation 
-          <Tooltip placement="top" label="Cette fonctionnalité est suceptible de changer après la Beta.">
-            <Badge fontSize="0.6em">beta</Badge>
+          <Tooltip placement="top" label="Cette fonctionnalité est suceptible de changer après la Alpha.">
+            <Badge fontSize="0.6em">alpha</Badge>
           </Tooltip>
         </StatHelpText>
       </Stat>

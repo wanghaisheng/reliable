@@ -26,7 +26,7 @@ const Login = () => {
           <Flex as="a" href="/" align="center" aria-label="Retour à l'accueil">
             <Icon color="black" name="logo" size="40px" mb={4} />
             <Text fontFamily="Work Sans" letterSpacing="-1px" ml='5px' fontWeight="medium" fontSize="20px">Reliable</Text>
-            <Badge fontSize="0.5em" ml={2}>beta</Badge>
+            <Badge fontSize="0.5em" ml={2}>alpha</Badge>
           </Flex>
         </Flex>
         <Button

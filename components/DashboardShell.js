@@ -37,7 +37,7 @@ const DashboardShell = ({ children }) => {
                 </Flex>
               </Link>
             </NextLink>
-            <Badge mt={1} ml={2} fontSize="0.5em">Beta</Badge>
+            <Badge mt={1} ml={2} fontSize="0.5em">alpha</Badge>
             </Flex>
             <NextLink href="/sites" passHref>
               <Link ml={8} mr={4}>Sites</Link>

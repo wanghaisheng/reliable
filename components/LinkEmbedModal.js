@@ -19,7 +19,7 @@ const EditSiteModal = ({ siteId, children }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const copyCode = () => {
-    navigator.clipboard.writeText(`<iframe src='https://reliable.vercel.app/embed/${siteId}' />`)
+    navigator.clipboard.writeText(`<iframe src='https://reliable-brown.vercel.app/embed/${siteId}' />`)
     toast({
       title: "Code copié",
       status: "success",
@@ -52,7 +52,7 @@ const EditSiteModal = ({ siteId, children }) => {
           <ModalCloseButton />
           <ModalBody pb={6}>
             <Text mb={2}>Voici le code à intégrer, il est à coller à l'emplacement souhaité sur votre site :</Text>
-            <Code>{`<iframe src='https://reliable.vercel.app/embed/${siteId}' />`}</Code>
+            <Code>{`<iframe src='https://reliable-brown.vercel.app/embed/${siteId}' />`}</Code>
             <Text mt={4}>Consultez la <Link sytle="text-decoration: underline;" target="_blank" href="/docs">documentation</Link> pour connaitre les bonnes pratiques de l'intégration par iFrame.</Text>
           </ModalBody>
 

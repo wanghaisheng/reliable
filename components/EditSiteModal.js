@@ -97,7 +97,7 @@ const EditSiteModal = ({ settings, siteId, children }) => {
                   defaultIsChecked={settings?.ratings}
                 />
               <FormLabel ml={2} htmlFor="show-ratings">
-                Afficher la note <Badge fontSize="0.6em">beta</Badge>
+                Afficher la note <Badge fontSize="0.6em">alpha</Badge>
               </FormLabel>
             </FormControl>
           </ModalBody>

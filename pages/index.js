@@ -1,9 +1,7 @@
-import Head from 'next/head';
-import { Box, Button, Flex, Icon, Text, Heading, Badge} from '@chakra-ui/core';
+import { Box, Button, Flex, Icon, Text, Heading, Badge, Image} from '@chakra-ui/core';
 
 import { useAuth } from '@/lib/auth';
 import { getAllFeedback, getSite } from '@/lib/db-admin';
-import LoginButtons from '@/components/LoginButtons';
 import Footer from '@/components/Footer';
 
 const SITE_ID = process.env.NEXT_PUBLIC_HOME_PAGE_SITE_ID;
@@ -21,7 +19,7 @@ export async function getStaticProps(context) {
   };
 }
 
-const Home = ({ allFeedback, site }) => {
+const Home = () => {
   const auth = useAuth();
 
   return (
@@ -31,7 +29,7 @@ const Home = ({ allFeedback, site }) => {
           <Flex direction="row" align="center">
             <Icon color="black" name="logo" size="30px" mb={2} />
             <Text fontFamily="Work Sans" letterSpacing="-1px" ml='5px' fontWeight="medium" fontSize="20px">Reliable</Text>
-            <Badge fontSize="0.5em" ml={2}>beta</Badge>
+            <Badge fontSize="0.5em" ml={2}>alpha</Badge>
           </Flex>
           <Button
             as="a"
@@ -53,14 +51,15 @@ const Home = ({ allFeedback, site }) => {
         <Box maxW="900px">
           <Flex direction="column" align="center" maxW={["300px", "740px"]}>
             <Heading  fontFamily="Work Sans" letterSpacing="-3px" lineHeight={["3rem", "4.5rem"]}textAlign="center" fontSize={["48px", "64px"]}>Le succès de votre marque dépend de la voix de vos clients.</Heading>
-            <Text my={4} fontWeight="medium" opacity=".7" textAlign="center">Reliable aide à convaincre vos consomateurs à l’aide d’avis 100% vérifiés <br/> grâce à un outils d’avis client rapide, contrôlable et open source !</Text>
+            <Text my={4} fontWeight="medium" opacity=".7" textAlign="center">Reliable aide à convaincre vos consomateurs à l’aide d’avis 100% vérifiés <br/> grâce à des outils rapides, légers, contrôlables et open source !</Text>
              <Button
                 as="a"
                 href={auth.user ? '/sites' : '/login'}
                 backgroundColor="gray.900"
                 color="white"
                 fontWeight="medium"
-                maxW="300px"
+                height="50px"
+                px={6}
                 _hover={{ bg: 'gray.700' }}
                 _active={{
                   bg: 'gray.800',
@@ -69,6 +68,13 @@ const Home = ({ allFeedback, site }) => {
             >
               {auth.user ? 'Retour au tableau de bord' : 'Commencer gratuitement'}
             </Button>
+            <Text opacity=".7" mt={2} fontSize="xs">{auth.user ? null : "14 jours d'essai offerts"}</Text>
+          </Flex>
+        </Box>
+        <Image mt={['50px', '30px']} src="/test.png"/>
+        <Box maxW="900px" mt={24}>
+          <Flex direction="column" align="center" maxW={["300px", "450px"]}>
+            <Heading fontWeight="600"  fontFamily="Work Sans" letterSpacing={["-2px", "-3px"]} lineHeight={["2rem", "3rem"]} textAlign="center" fontSize={["24px", "36px"]}>Bénéfices clés de l’utilisation d’un système d’avis</Heading>
           </Flex>
         </Box>
       </Flex>
