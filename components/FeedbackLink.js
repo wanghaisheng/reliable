@@ -28,7 +28,7 @@ export default function FeedbackLink({ paths }) {
         Laisser un commentaire →
       </Link>
       <Link fontSize="xs" color="gray.500" href="/" target="_blank">
-        via Reliable <Badge>BETA</Badge>
+        via Reliable <Badge mt="-3px" fontSize="0.7em">BETA</Badge>
       </Link>
     </Flex>
   );
