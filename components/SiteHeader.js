@@ -12,9 +12,9 @@ import {
 import EditSiteModal from './EditSiteModal';
 import LinkEmbedModal from './LinkEmbedModal';
 
-const SiteHeader = ({ isSiteOwner, site, siteId, route }) => {
+const SiteHeader = ({ isSiteOwner, site, siteId, route, loading }) => {
   const siteName = site?.name;
-
+  
   return (
     <Box mx={4}>
       <Breadcrumb>
@@ -38,7 +38,7 @@ const SiteHeader = ({ isSiteOwner, site, siteId, route }) => {
       </Breadcrumb>
       <Flex justifyContent="space-between">
         <Heading mb={8}>{siteName || '-'}</Heading>
-        {isSiteOwner && (
+        {isSiteOwner && !loading && (
           <Flex direction="column">
           <EditSiteModal settings={site?.settings} siteId={siteId}>
             Paramètres du site

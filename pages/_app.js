@@ -55,6 +55,12 @@ const GlobalStyle = ({ children }) => {
             flex-direction: column;
             min-height: 100vh;
           }
+
+          .glassbg {
+            backdrop-filter: saturate(180%) blur(9px);
+            border-radius: 20px;
+            border: solid 1px rgba(255,255,255,0.2)
+          }
         `}
       />
       {children}

@@ -1,10 +1,26 @@
 import React from 'react';
 import NextLink from 'next/link';
 import { Box, Link } from '@chakra-ui/core';
-import { parseISO, format } from 'date-fns';
+
+import formatRelative from 'date-fns/formatRelative';
+import fr from 'date-fns/locale/fr';
 
 import { Table, Tr, Th, Td } from './Table';
 import DeleteSiteButton from './DeleteSiteButton';
+
+const formatRelativeLocale = {
+  lastWeek: "eeee 'dernier à' p",
+  yesterday: "'hier à' p",
+  today: "'aujourd’hui à' p",
+  tomorrow: "'demain à' p'",
+  nextWeek: "eeee 'prochain à' p",
+  other: 'PPp'
+};
+
+const locale = {
+  ...fr,
+  formatRelative: (token) => formatRelativeLocale[token],
+};
 
 const SiteTable = ({ sites }) => {
   return (
@@ -49,7 +65,7 @@ const SiteTable = ({ sites }) => {
                   </Link>
                 </NextLink>
               </Td>
-              <Td>{format(parseISO(site.createdAt), 'PPpp')}</Td>
+              <Td>{formatRelative(new Date(site.createdAt), new Date(), { locale })}</Td>
               <Td>
                 <DeleteSiteButton siteId={site.id} />
               </Td>

@@ -1,10 +1,26 @@
 import React from 'react';
 import { Box, Heading, Text, Divider, Icon, Flex, Code } from '@chakra-ui/core';
-import { format, parseISO } from 'date-fns';
 import ReactMarkdown from 'react-markdown';
+
+import formatRelative from 'date-fns/formatRelative';
+import fr from 'date-fns/locale/fr';
 
 import { useTheme } from '@/utils/useTheme';
 import MDXComponents from './MDXComponents';
+
+const formatRelativeLocale = {
+  lastWeek: "eeee 'dernier à' p",
+  yesterday: "'hier à' p",
+  today: "'aujourd’hui à' p",
+  tomorrow: "'demain à' p'",
+  nextWeek: "eeee 'prochain à' p",
+  other: "PP' à 'p"
+};
+
+const locale = {
+  ...fr,
+  formatRelative: (token) => formatRelativeLocale[token],
+};
 
 const Feedback = ({ author, text, createdAt, provider, isLast, settings }) => {
   const colorMode = useTheme();
@@ -39,7 +55,7 @@ const Feedback = ({ author, text, createdAt, provider, isLast, settings }) => {
       </Flex>
       {settings?.timestamp && (
         <Text color="gray.500" mb={4} fontSize="xs">
-          {format(parseISO(createdAt), 'PPpp')}
+          {formatRelative(new Date(createdAt), new Date(), { locale })}
         </Text>
       )}
       <Box color={textColor[colorMode]}>

@@ -4,32 +4,30 @@ import { Link, Flex, useColorMode, Button } from '@chakra-ui/core';
 
 const Footer = () => {
 
-  const { colorMode, toggleColorMode } = useColorMode();
-
   return (
-    <Flex mb={8} mt={24} justify="center">
+    <Flex pb={8} pt={24} justify="center" margin='auto' textAlign="center" direction={["column","row"]}>
       <NextLink href="/privacy" passHref>
-        <Link fontSize="sm" mr={4} fontWeight="medium" color="gray.500">
+        <Link my={2} fontSize="sm" mr={[0, 4]} fontWeight="medium" color="gray.500">
           Confidentialité
         </Link>
       </NextLink>
       <NextLink href="/terms" passHref>
-        <Link fontSize="sm" mr={4} fontWeight="medium" color="gray.500">
+        <Link my={2} fontSize="sm" mr={[0, 4]} fontWeight="medium" color="gray.500">
           Conditions
         </Link>
       </NextLink>
       <NextLink href="/docs" passHref>
-        <Link fontSize="sm" mr={4} fontWeight="medium" color="gray.500">
+        <Link my={2} fontSize="sm" mr={[0, 4]} fontWeight="medium" color="gray.500">
           Documentation
         </Link>
       </NextLink>
       <NextLink href="/tarifs" passHref>
-        <Link fontSize="sm" mr={4} fontWeight="medium" color="gray.500">
+        <Link my={2} fontSize="sm" mr={[0, 4]} fontWeight="medium" color="gray.500">
           Tarifs
         </Link>
       </NextLink>
       <NextLink href="/" passHref>
-        <Link fontSize="sm" mr={4} fontWeight="medium" color="gray.500">
+        <Link my={2} fontSize="sm" mr={[0, 4]} fontWeight="medium" color="gray.500">
           Accueil
         </Link>
       </NextLink>

@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { useRouter } from 'next/router';
 import { Box, FormControl, Textarea, Button } from '@chakra-ui/core';
 import useSWR, { mutate } from 'swr';
+import Head from 'next/head'
 
 import { useAuth } from '@/lib/auth';
 import { createFeedback } from '@/lib/db';
@@ -77,11 +78,15 @@ const FeedbackPage = () => {
 
   return (
     <DashboardShell>
+      <Head>
+        <title>Avis sur {site?.name} - Reliable</title>
+      </Head>
       <SiteHeader
         isSiteOwner={site?.authorId === user?.uid}
         site={site}
         siteId={siteId}
         route={route}
+        loading={loading}
       />
       <Box
         display="flex"
