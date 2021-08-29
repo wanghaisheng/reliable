@@ -32,7 +32,7 @@ const Home = () => {
           maxW="950px" 
           margin="0 auto"
           className="glassbg"
-          p="20px 30px"
+          p={["18px 22px","20px 30px"]} /* mettre 22px de bordure sur l'axe X en mobile */
         >
           <Flex direction="row" align="center">
             <Icon color="black" name="logo" size={["20px","30px"]} mb={2} />
