@@ -97,7 +97,7 @@ const Home = () => {
           </Flex>
         </Box>
 
-        <Image mt={['50px', '30px']} display={["none", "block"]} src="band-desktop.png" />
+        <Image mt={['50px', '30px']} display={["none", "block"]} src="band-desktop.png" draggable="false" />
         <Image mt={['50px', '30px']} display={["block", "none"]} src="band-mobile.png" />
 
         <Box maxW="900px" mt={[24, 48]}>
@@ -138,7 +138,7 @@ const Home = () => {
             ne coûte que 8€ par mois.</Text>
         </Flex>
         <Flex w={["0%", "0%", "60%"]} h="550px" justifyContent="flex-end">
-          <Box className="BigBlackBox" borderRadius="50px 0 0 50px" width={["0%", "0%", "90%"]} background="url(watch.jpg)" backgroundSize="cover" backgroundPosition="center" />
+          <Box className="BigBlackBox" borderRadius="50px 0 0 50px" width={["0%", "0%", "90%"]} background="url(watch.jpg)" backgroundSize="cover" backgroundPosition="25% 50%" />
         </Flex>
       </Flex>
 

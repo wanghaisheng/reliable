@@ -7,7 +7,7 @@ import Footer from './Footer';
 const DocsLayout = ({ children }) => (
   <>
     <Navbar />
-    <Box maxW="650px" mx="auto" px={8} w="100%" wordBreak="break-all">
+    <Box maxW="680px" mx="auto" px={8} w="100%" className="Docs">
       {children}
     </Box>
     <Footer />

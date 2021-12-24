@@ -43,11 +43,20 @@ const GlobalStyle = ({ children }) => {
           }
 
           img {
+            /* For Opera and <= IE9, we need to add unselectable="on" attribute onto each element */
+            /* Check this site for more details: http://help.dottoro.com/lhwdpnva.php */
+            -moz-user-select: none; /* These user-select properties are inheritable, used to prevent text selection */
             -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -o-user-select: none;
-            user-select: none;
+            -ms-user-select: none; /* From IE10 only */
+            user-select: none; /* Not valid CSS yet, as of July 2012 */
+
+            -webkit-user-drag: none; /* Prevents dragging of images/divs etc */
+            user-drag: none;
+            pointer-events: none;
+          }
+
+          .Docs p{
+            hyphens: auto;
           }
 
           .gradientText{

@@ -1,6 +1,6 @@
 import React from 'react';
 import NextLink from 'next/link';
-import { Link, Flex, useColorMode, Button } from '@chakra-ui/core';
+import { Link, Flex, useColorMode, Button, Badge } from '@chakra-ui/core';
 
 const Footer = () => {
 
@@ -8,7 +8,7 @@ const Footer = () => {
     <Flex pb={8} pt={24} justify="center" margin='auto' textAlign="center" direction={["column", "row"]}>
       <NextLink href="/privacy" passHref>
         <Link my={2} fontSize="sm" mr={[0, 4]} fontWeight="medium" color="gray.500">
-          Confidentialité
+          <Badge mb="2px" fontSize="0.7em" ml={2}>EN</Badge> Confidentialité
         </Link>
       </NextLink>
       {/*
@@ -33,7 +33,7 @@ const Footer = () => {
           Accueil
         </Link>
       </NextLink>
-    </Flex>
+    </Flex >
   );
 };
 
