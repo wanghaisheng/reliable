@@ -1,10 +1,10 @@
-# Reliable
+![Bannière d'introduction](https://i.imgur.com/4ek05o9.jpg)
 
-> Easily add user reviews, feedback, and comments to your website in one line of code.
+Reliable aide à convaincre vos consomateurs à l’aide d’avis 100% vérifiés grâce à des outils rapides, légers, contrôlables et open sources.
 
-This product is being built as part of [React 2025](https://react2025.com).
+> Ce projet à été developpé, en partie, durant la formation en ligne [React 2025](https://react2025.com).
 
-## Running Locally
+## Environnement local
 
 ```bash
 $ git clone https://github.com/florianheysen/reliable.git
@@ -13,14 +13,16 @@ $ yarn
 $ yarn dev
 ```
 
-## Environment Variables
+## Variables d'environnement
 
-See [`.env.example`](https://github.com/florianheysen/reliable/blob/master/.env.example) for an example.
+Se référer à [`.env.example`](https://github.com/florianheysen/reliable/blob/master/.env.example).
 
-## Built Using
+## Langage et outils utilisés
 
 - [Next.js](https://nextjs.org/)
 - [Vercel](https://vercel.com)
 - [Stripe](https://stripe.com/)
 - [Firebase](https://firebase.com)
 - [Chakra UI](https://chakra-ui.com/)
+
+![Bannière pied de page](https://i.imgur.com/lR1Anbj.png)
