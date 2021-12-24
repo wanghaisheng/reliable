@@ -72,7 +72,7 @@ const Home = () => {
         </Flex>
       </Box>
 
-      <Flex as="main" mt="160px" direction="column" align="center" w="100%">
+      <Flex as="main" mt={["150px", "200px", "220px"]} direction="column" align="center" w="100%">
         <Box maxW="900px">
           <Flex direction="column" align="center" maxW={["300px", "740px"]}>
             <Heading fontFamily="Work Sans" letterSpacing="-3px" lineHeight={["3rem", "4.5rem"]} textAlign="center" fontSize={["48px", "64px"]}>Le <span className="gradientText">succès</span> de votre marque dépend de la voix de vos <span className="gradientText">clients</span></Heading>
