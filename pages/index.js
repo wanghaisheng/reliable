@@ -142,7 +142,7 @@ const Home = () => {
         </Flex>
       </Flex>
 
-      <Flex mt={[12, 32]} mb={8} direction="column" align="center" w="100%">
+      <Flex mt={[8, 32]} mb={8} direction="column" align="center" w="100%">
         <Box maxW="900px">
           <Flex direction="column" align="center" maxW={["300px", "600px"]}>
             <Heading fontFamily="Work Sans" letterSpacing="-2px" lineHeight={["2rem", "3rem"]} textAlign="center" fontSize={["32px", "48px"]}>Laissez vos <span className="gradientText">clients</span> vendre votre affaire !</Heading>
