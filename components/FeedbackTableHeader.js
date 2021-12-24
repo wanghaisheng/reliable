@@ -19,7 +19,7 @@ const FeedbackTableHeader = ({ siteName }) => (
       </BreadcrumbItem>
     </Breadcrumb>
     <Flex justifyContent="space-between">
-      <Heading mb={8}>Tous les commentaires</Heading>
+      <Heading mb={8}>Modérer vos commentaires</Heading>
     </Flex>
   </Box>
 );

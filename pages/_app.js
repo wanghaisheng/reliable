@@ -50,16 +50,42 @@ const GlobalStyle = ({ children }) => {
             user-select: none;
           }
 
+          .gradientText{
+            background-image: linear-gradient(to left,#80c4ea,#7461cb);
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+
+          .BigBlackBox::before{
+            content:url(rounds.svg);
+            position:absolute;
+            right:0;
+            margin-top:-212.5px;
+            z-index:-1;
+          }
+
           #__next {
             display: flex;
             flex-direction: column;
             min-height: 100vh;
           }
 
+          /* slightly transparent fallback */
           .glassbg {
-            backdrop-filter: saturate(180%) blur(9px);
+            background-color: rgba(255, 255, 255, .8);
             border-radius: 20px;
-            border: solid 1px rgba(255,255,255,0.2)
+            border: solid 2px rgba(255,255,255,1)
+          }
+
+          /* if backdrop support: very transparent and blurred */
+          @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+            .glassbg {
+              backdrop-filter: saturate(180%) blur(5px);
+              border-radius: 20px;
+              border: solid 2px rgba(255,255,255,1)
+            }
           }
         `}
       />
@@ -83,7 +109,7 @@ const App = ({ Component, pageProps }) => {
         <MDXProvider components={MDXComponents}>
           <DefaultSeo {...SEO} />
           <GlobalStyle />
-            <Component {...pageProps} />
+          <Component {...pageProps} />
         </MDXProvider>
       </AuthProvider>
     </ThemeProvider>

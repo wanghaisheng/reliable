@@ -14,7 +14,7 @@ const DashboardShell = ({ children }) => {
         backgroundColor="white"
         mb={[8, 16]}
         w="full"
-        borderTop="5px solid #9EE493"
+        borderTop="5px solid #b8d9ed"
       >
         <Flex
           alignItems="center"
@@ -29,15 +29,15 @@ const DashboardShell = ({ children }) => {
         >
           <Flex align="center">
             <Flex direction="row" align="center">
-            <NextLink href="/" passHref>
-              <Link>
-                <Flex direction="row">
-                  <Icon name="logo" size="24px" />
-                  <Text letterSpacing="-1px" fontWeight="medium" mt={1} ml={2}>Reliable</Text>
-                </Flex>
-              </Link>
-            </NextLink>
-            <Badge mt={1} ml={2} fontSize="0.5em">alpha</Badge>
+              <NextLink href="/" passHref>
+                <Link>
+                  <Flex direction="row">
+                    <Icon name="logo" size="24px" />
+                    <Text letterSpacing="-1px" fontWeight="medium" mt={1} ml={2}>Reliable</Text>
+                  </Flex>
+                </Link>
+              </NextLink>
+              <Badge mt={1} ml={2} fontSize="0.5em">alpha</Badge>
             </Flex>
             <NextLink href="/sites" passHref>
               <Link ml={8} mr={4}>Sites</Link>
