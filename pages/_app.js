@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { ThemeProvider, CSSReset } from '@chakra-ui/core';
+import { ThemeProvider, CSSReset, ColorModeProvider } from '@chakra-ui/core';
 import { Global, css } from '@emotion/core';
 import { MDXProvider } from '@mdx-js/react';
 import { DefaultSeo } from 'next-seo';
@@ -83,9 +83,8 @@ const GlobalStyle = ({ children }) => {
 
           /* slightly transparent fallback */
           .glassbg {
-            background-color: rgba(255, 255, 255, .8);
             border-radius: 20px;
-            border: solid 2px rgba(255,255,255,1)
+            border: solid 2px;
           }
 
           /* if backdrop support: very transparent and blurred */
@@ -114,13 +113,15 @@ const App = ({ Component, pageProps }) => {
 
   return (
     <ThemeProvider theme={customTheme}>
-      <AuthProvider>
-        <MDXProvider components={MDXComponents}>
-          <DefaultSeo {...SEO} />
-          <GlobalStyle />
-          <Component {...pageProps} />
-        </MDXProvider>
-      </AuthProvider>
+      <ColorModeProvider>
+        <AuthProvider>
+          <MDXProvider components={MDXComponents}>
+            <DefaultSeo {...SEO} />
+            <GlobalStyle />
+            <Component {...pageProps} />
+          </MDXProvider>
+        </AuthProvider>
+      </ColorModeProvider>
     </ThemeProvider>
   );
 };

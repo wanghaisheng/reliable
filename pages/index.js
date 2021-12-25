@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Icon, Text, Heading, Badge, Image, Link } from '@chakra-ui/core';
+import { Box, Button, Flex, Icon, Text, Heading, Badge, Image, Link, useColorMode } from '@chakra-ui/core';
 import NextLink from 'next/link';
 import toast, { Toaster } from 'react-hot-toast';
 
@@ -31,6 +31,22 @@ const infoChangelog = () => {
 const Home = () => {
   const auth = useAuth();
 
+  // On définie l'instance colorMode qui permet de faire des changements selon le thème selectionné
+  const { colorMode } = useColorMode();
+  // Les images qui changent selon le thème
+  const bandDesktop = { light: "band-desktop.png", dark: "band-desktop-dark.png" }
+  const bandMobile = { light: "band-mobile.png", dark: "band-mobile-dark.png" }
+  const watchImg = { light: "url(watch.jpg)", dark: "url(watch-dark.jpg)" }
+  const conversion = { light: "conversion.svg", dark: "conversion-dark.svg" }
+  const fideliser = { light: "fideliser.svg", dark: "fideliser-dark.svg" }
+  const reputation = { light: "reputation.svg", dark: "reputation-dark.svg" }
+
+  // Changement de couleurs navigation
+  const navWp = { light: "rgba(255,255,255,.8)", dark: "rgba(38,46,65,.8)" }
+  const navBorder = { light: "rgba(255,255,255,1)", dark: "rgba(38,46,65,1)" }
+  const logoColor = { light: "black", dark: "white" }
+
+
   return (
     <>
       <Toaster />
@@ -42,15 +58,22 @@ const Home = () => {
           maxW="950px"
           margin="0 auto"
           className="glassbg"
+          borderColor={navBorder[colorMode]}
+          backgroundColor={navWp[colorMode]}
           p={["18px 22px", "20px 30px"]} /* mettre 22px de bordure sur l'axe X en mobile */
         >
           <Flex direction="row" align="center">
-            <Icon color="black" name="logo" size={["20px", "30px"]} mb={2} />
-            <Text fontFamily="Work Sans" letterSpacing="-1px" ml='5px' fontWeight="medium" fontSize={["16px", "20px"]}>Reliable</Text>
+            <Box mb='2px'>
+              <svg width="20" height="30" viewBox="0 0 30 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M-6.31972e-07 39.2697L0 10.354L30 39.2697L-6.31972e-07 39.2697Z" fill={logoColor[colorMode]} />
+                <path d="M15.0002 24.759C18.2595 24.759 21.3852 23.4548 23.6899 21.1332C25.9946 18.8115 27.2893 15.6628 27.2893 12.3795C27.2893 9.09627 25.9946 5.94749 23.6899 3.62588C21.3852 1.30427 18.2595 2.98403e-07 15.0002 -2.68588e-07L15.0002 12.3795L15.0002 24.759Z" fill={logoColor[colorMode]} />
+              </svg>
+            </Box>
+            <Text fontFamily="Work Sans" letterSpacing="-1px" ml='10px' fontWeight="medium" fontSize={["16px", "20px"]}>Reliable</Text>
             <Badge fontSize={["0.4em", "0.5em"]} ml={2}>alpha</Badge>
           </Flex>
           <Box>
-            <Button display={["none", "none", "inline"]} onClick={infoChangelog} variant='link' color="black" fontWeight="500">Changelog</Button>
+            <Link display={["none", "none", "inline"]} onClick={infoChangelog} fontWeight="500">Changelog</Link>
             <NextLink href="/tarifs" passHref>
               <Link display={["none", "none", "inline"]} fontWeight="500" mx={10}>Tarifs</Link>
             </NextLink>
@@ -97,8 +120,8 @@ const Home = () => {
           </Flex>
         </Box>
 
-        <Image mt={['50px', '30px']} display={["none", "block"]} src="band-desktop.png" draggable="false" />
-        <Image mt={['50px', '30px']} display={["block", "none"]} src="band-mobile.png" />
+        <Image mt={['50px', '30px']} display={["none", "block"]} src={bandDesktop[colorMode]} />
+        <Image mt={['50px', '30px']} display={["block", "none"]} src={bandMobile[colorMode]} />
 
         <Box maxW="900px" mt={[24, 48]}>
           <Flex direction="column" align="center">
@@ -108,15 +131,15 @@ const Home = () => {
               direction={["column", "column", "row"]}
               transform={["0", "0", "translateX(-20px)"]}>
               <Flex direction="column" align="center">
-                <img src="conversion.svg" height="50px" width="100px" />
+                <img src={conversion[colorMode]} height="50px" width="100px" />
                 <Text fontWeight='600' mt={2}>Augmenter le taux de conversion</Text>
               </Flex>
               <Flex px={[0, 0, 16]} py={[12, 12, 0]} direction="column" align="center">
-                <img src="fideliser.svg" height="50px" width="100px" />
+                <img src={fideliser[colorMode]} height="50px" width="100px" />
                 <Text fontWeight='600' mt={4}>Fidéliser votre clientèle</Text>
               </Flex>
               <Flex direction="column" align="center">
-                <img src="reputation.svg" height="50px" width="100px" />
+                <img src={reputation[colorMode]} height="50px" width="100px" />
                 <Text fontWeight='600' mt={4}>Gérer votre e-reputation</Text>
               </Flex>
             </Flex>
@@ -138,7 +161,7 @@ const Home = () => {
             ne coûte que 8€ par mois.</Text>
         </Flex>
         <Flex w={["0%", "0%", "60%"]} h="550px" justifyContent="flex-end">
-          <Box className="BigBlackBox" borderRadius="50px 0 0 50px" width={["0%", "0%", "90%"]} background="url(watch.jpg)" backgroundSize="cover" backgroundPosition="25% 50%" />
+          <Box className="BigBlackBox" borderRadius="50px 0 0 50px" width={["0%", "0%", "90%"]} background={watchImg[colorMode]} backgroundSize="cover" backgroundPosition="25% 50%" />
         </Flex>
       </Flex>
 

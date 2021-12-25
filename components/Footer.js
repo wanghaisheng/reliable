@@ -3,6 +3,7 @@ import NextLink from 'next/link';
 import { Link, Flex, useColorMode, Button, Badge } from '@chakra-ui/core';
 
 const Footer = () => {
+  const { colorMode, toggleColorMode } = useColorMode();
 
   return (
     <Flex pb={8} pt={24} justify="center" margin='auto' textAlign="center" direction={["column", "row"]}>
@@ -33,6 +34,9 @@ const Footer = () => {
           Accueil
         </Link>
       </NextLink>
+      <Button fontSize="sm" mr={[0, 4]} fontWeight="medium" color="gray.500" variant='link' onClick={toggleColorMode}>
+        Thème {colorMode === "light" ? "clair" : "sombre"}
+      </Button>
     </Flex >
   );
 };
