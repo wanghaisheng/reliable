@@ -1,6 +1,6 @@
 ![Bannière d'introduction](https://i.imgur.com/4ek05o9.jpg)
 
-Reliable aide à convaincre vos consomateurs à l’aide d’avis 100% vérifiés grâce à des outils rapides, légers, contrôlables et open sources.
+Reliable aide à convaincre vos consommateurs à l’aide d’avis 100% vérifiés grâce à des outils rapides, légers, contrôlables et open sources.
 
 > Ce projet à été developpé, en partie, durant la formation en ligne [React 2025](https://react2025.com).
 
