@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { useRouter } from 'next/router';
-import { Box, FormControl, Textarea, Button } from '@chakra-ui/core';
+import { Box, FormControl, Textarea, Button } from '@chakra-ui/react';
 import useSWR, { mutate } from 'swr';
 import Head from 'next/head'
 

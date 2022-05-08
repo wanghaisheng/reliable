@@ -1,76 +1,36 @@
-import { Box, Button, Flex, Icon, Text, Heading, Badge, Image, Link } from '@chakra-ui/core';
+import Head from 'next/head'
+import styles from '../styles/Home.module.css'
 import NextLink from 'next/link';
-import toast, { Toaster } from 'react-hot-toast';
-
 import { useAuth } from '@/lib/auth';
-import { getAllFeedback, getSite } from '@/lib/db-admin';
+
+import { Box, Button, Flex, IconButton, Text, Heading, Avatar, Image, Link, useColorMode, useColorModeValue, Menu, MenuButton, MenuList, MenuItem, MenuDivider } from '@chakra-ui/react'
+
+import { createBreakpoints } from '@chakra-ui/theme-tools'
+
+import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
-const SITE_ID = process.env.NEXT_PUBLIC_HOME_PAGE_SITE_ID;
+function Home() {
+  const { user } = useAuth();
 
-export async function getStaticProps(context) {
-  const { feedback } = await getAllFeedback(SITE_ID);
-  const { site } = await getSite(SITE_ID);
+  const breakpoints = createBreakpoints({
+    sm: '30em',
+    md: '48em',
+    lg: '62em',
+    xl: '80em',
+    '2xl': '96em',
+  })
 
-  return {
-    props: {
-      allFeedback: feedback,
-      site
-    },
-    revalidate: 1
-  };
-}
-
-const infoChangelog = () => {
-  toast('Nos changelogs seront bientôt disponibles.', {
-    icon: '👨‍💻',
-    position: "top",
-  });
-}
-
-const Home = () => {
-  const auth = useAuth();
+  const bandDesktop = useColorModeValue("band-desktop.png", "band-desktop-dark.png")
+  const bandMobile = useColorModeValue("band-mobile.png", "band-mobile-dark.png")
+  const watchImage = useColorModeValue("url(watch.jpg)", "url(watch-dark.jpg)")
+  const conversion = useColorModeValue("conversion.svg", "conversion-dark.svg")
+  const fideliser = useColorModeValue("fideliser.svg", "fideliser-dark.svg")
+  const reputation = useColorModeValue("reputation.svg", "reputation-dark.svg")
 
   return (
     <>
-      <Toaster />
-      <Box py={4} px={4} position="fixed" w="100%" zIndex="99">
-        <Flex
-          as="nav"
-          direction="row"
-          justify="space-between"
-          maxW="950px"
-          margin="0 auto"
-          className="glassbg"
-          p={["18px 22px", "20px 30px"]} /* mettre 22px de bordure sur l'axe X en mobile */
-        >
-          <Flex direction="row" align="center">
-            <Icon color="black" name="logo" size={["20px", "30px"]} mb={2} />
-            <Text fontFamily="Work Sans" letterSpacing="-1px" ml='5px' fontWeight="medium" fontSize={["16px", "20px"]}>Reliable</Text>
-            <Badge fontSize={["0.4em", "0.5em"]} ml={2}>alpha</Badge>
-          </Flex>
-          <Box>
-            <Button display={["none", "none", "inline"]} onClick={infoChangelog} variant='link' color="black" fontWeight="500">Changelog</Button>
-            <NextLink href="/tarifs" passHref>
-              <Link display={["none", "none", "inline"]} fontWeight="500" mx={10}>Tarifs</Link>
-            </NextLink>
-            <Button
-              as="a"
-              href={auth.user ? '/sites' : '/login'}
-              backgroundColor="gray.900"
-              color="white"
-              fontWeight="medium"
-              maxW="200px"
-              _hover={{ bg: 'gray.700' }}
-              _active={{
-                bg: 'gray.800',
-                transform: 'scale(0.95)'
-              }}>
-              Tableau de bord
-            </Button>
-          </Box>
-        </Flex>
-      </Box>
+      <Navbar />
 
       <Flex as="main" mt={["150px", "200px", "220px"]} direction="column" align="center" w="100%">
         <Box maxW="900px">
@@ -79,7 +39,7 @@ const Home = () => {
             <Text my={4} fontWeight="medium" opacity=".7" textAlign="center">Reliable aide à convaincre vos consomateurs à l’aide d’avis 100% vérifiés <br /> grâce à des outils rapides, légers, contrôlables et open sources !</Text>
             <Button
               as="a"
-              href={auth.user ? '/sites' : '/login'}
+              href={user ? '/sites' : '/login'}
               backgroundColor="gray.900"
               color="white"
               fontWeight="medium"
@@ -88,35 +48,35 @@ const Home = () => {
               _hover={{ bg: 'gray.700' }}
               _active={{
                 bg: 'gray.800',
-                transform: 'scale(0.95)'
+                transform: 'scale(0.97)'
               }}
             >
-              {auth.user ? 'Retour au tableau de bord' : 'Commencer gratuitement'}
+              {user ? 'Retour au tableau de bord' : 'Commencer gratuitement'}
             </Button>
-            <Text opacity=".7" mt={2} fontSize="xs">{auth.user ? null : "14 jours d'essai offerts"}</Text>
+            {!user && <Text opacity=".7" mt={2} fontSize="xs">14 jours d&rsquo;essai offerts</Text>}
           </Flex>
         </Box>
 
-        <Image mt={['50px', '30px']} display={["none", "block"]} src="band-desktop.png" draggable="false" />
-        <Image mt={['50px', '30px']} display={["block", "none"]} src="band-mobile.png" />
+        <Image alt="" mt={['50px', '30px']} display={["none", "block"]} src={bandDesktop} />
+        <Image alt="" mt={['50px', '30px']} display={["block", "none"]} src={bandMobile} />
 
         <Box maxW="900px" mt={[24, 48]}>
           <Flex direction="column" align="center">
-            <Heading maxW={["300px", "450px"]} fontWeight="600" fontWeight="700" fontFamily="Work Sans" letterSpacing="-2px" lineHeight={["2rem", "2.2rem"]} textAlign="center" fontSize={["32px", "36px"]}>Bénéfices clés de l’utilisation d’un système d’avis</Heading>
+            <Heading maxW={["300px", "450px"]} fontWeight="700" fontFamily="Work Sans" letterSpacing="-2px" lineHeight={["2rem", "2.2rem"]} textAlign="center" fontSize={["32px", "36px"]}>Bénéfices clés de l’utilisation d’un système d’avis</Heading>
             <Flex
               mt={12}
               direction={["column", "column", "row"]}
               transform={["0", "0", "translateX(-20px)"]}>
               <Flex direction="column" align="center">
-                <img src="conversion.svg" height="50px" width="100px" />
+                <Image alt="" src={conversion} height="70px" width="100px" />
                 <Text fontWeight='600' mt={2}>Augmenter le taux de conversion</Text>
               </Flex>
               <Flex px={[0, 0, 16]} py={[12, 12, 0]} direction="column" align="center">
-                <img src="fideliser.svg" height="50px" width="100px" />
+                <Image alt="" src={fideliser} height="70px" width="100px" />
                 <Text fontWeight='600' mt={4}>Fidéliser votre clientèle</Text>
               </Flex>
               <Flex direction="column" align="center">
-                <img src="reputation.svg" height="50px" width="100px" />
+                <Image alt="" src={reputation} height="70px" width="100px" />
                 <Text fontWeight='600' mt={4}>Gérer votre e-reputation</Text>
               </Flex>
             </Flex>
@@ -125,7 +85,7 @@ const Home = () => {
       </Flex>
       <Flex direction="row" w="100%" mt={[12, 48]}>
         <Flex pl={[0, 0, "15%"]} w={["70%", "70%", "40%"]} m={"auto"} direction="column" justifyContent="center">
-          <Heading mb={8} mt="-50px" fontWeight="600" fontWeight="700" fontFamily="Work Sans" letterSpacing="-2px" lineHeight={["2rem", "2.2rem"]} textAlign={["center", "center", "left"]} fontSize={["32px", "36px"]}>
+          <Heading mb={8} mt="-50px" fontWeight="600" fontFamily="Work Sans" letterSpacing="-2px" lineHeight={["2rem", "2.2rem"]} textAlign={["center", "center", "left"]} fontSize={["32px", "36px"]}>
             Un outil à la hauteur de vos attentes.
           </Heading>
           <Text fontWeight="600">
@@ -138,7 +98,14 @@ const Home = () => {
             ne coûte que 8€ par mois.</Text>
         </Flex>
         <Flex w={["0%", "0%", "60%"]} h="550px" justifyContent="flex-end">
-          <Box className="BigBlackBox" borderRadius="50px 0 0 50px" width={["0%", "0%", "90%"]} background="url(watch.jpg)" backgroundSize="cover" backgroundPosition="25% 50%" />
+          <Box
+            className="BigBlackBox"
+            borderRadius="50px 0 0 50px"
+            width={["0%", "0%", "90%"]}
+            background={watchImage}
+            backgroundSize="cover"
+            backgroundPosition="25% 50%"
+          />
         </Flex>
       </Flex>
 
@@ -149,7 +116,7 @@ const Home = () => {
             <Text my={4} fontWeight="medium" opacity=".7" textAlign="center">Commencez gratuitement, progressons ensemble.</Text>
             <Button
               as="a"
-              href={auth.user ? '/sites' : '/login'}
+              href={user ? '/sites' : '/login'}
               backgroundColor="gray.900"
               color="white"
               fontWeight="medium"
@@ -158,17 +125,17 @@ const Home = () => {
               _hover={{ bg: 'gray.700' }}
               _active={{
                 bg: 'gray.800',
-                transform: 'scale(0.95)'
+                transform: 'scale(0.97)'
               }}
             >
-              {auth.user ? 'Retour au tableau de bord' : 'Commencer gratuitement'}
+              {user ? 'Retour au tableau de bord' : 'Commencer gratuitement'}
             </Button>
           </Flex>
         </Box>
       </Flex>
       <Footer />
     </>
-  );
-};
+  )
+}
 
 export default Home;

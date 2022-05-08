@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Heading, Text, Divider, Icon, Flex, Code } from '@chakra-ui/core';
+import { Box, Heading, Text, Divider, Icon, Flex, Code } from '@chakra-ui/react';
 import ReactMarkdown from 'react-markdown';
 
 import formatRelative from 'date-fns/formatRelative';

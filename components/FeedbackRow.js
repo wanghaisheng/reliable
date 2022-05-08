@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Code, Switch } from '@chakra-ui/core';
+import { Box, Code, Switch } from '@chakra-ui/react';
 import { mutate } from 'swr';
 
 import { Td } from './Table';

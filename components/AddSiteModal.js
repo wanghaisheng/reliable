@@ -14,7 +14,7 @@ import {
   Input,
   useToast,
   useDisclosure
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 
 import { createSite } from '@/lib/db';
 import { useAuth } from '@/lib/auth';
@@ -84,8 +84,8 @@ const AddSiteModal = ({ children }) => {
                 id="site-input"
                 placeholder="Mon site"
                 name="name"
-                ref={register({
-                  required: 'Required'
+                {...register("name", {
+                  required: "Required",
                 })}
               />
             </FormControl>
@@ -96,8 +96,8 @@ const AddSiteModal = ({ children }) => {
                 id="link-input"
                 placeholder="https://monsite.fr"
                 name="url"
-                ref={register({
-                  required: 'Required'
+                {...register("url", {
+                  required: "Required",
                 })}
               />
             </FormControl>

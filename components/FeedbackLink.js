@@ -1,4 +1,4 @@
-import { Flex, Link, Badge } from '@chakra-ui/core';
+import { Flex, Link, Badge } from '@chakra-ui/react';
 
 import { useTheme } from '@/utils/useTheme';
 

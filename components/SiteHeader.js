@@ -7,7 +7,7 @@ import {
   Heading,
   Flex,
   Box
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 
 import EditSiteModal from './EditSiteModal';
 import LinkEmbedModal from './LinkEmbedModal';

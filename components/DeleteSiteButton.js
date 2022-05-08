@@ -9,7 +9,7 @@ import {
   AlertDialogOverlay,
   IconButton,
   Button
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 
 import { deleteSite } from '@/lib/db';
 import { useAuth } from '@/lib/auth';

@@ -1,6 +1,6 @@
 import React from 'react';
 import NextLink from 'next/link';
-import { Link, Flex, useColorMode, Button, Badge } from '@chakra-ui/core';
+import { Link, Flex, useColorMode, Button, Badge } from '@chakra-ui/react';
 
 const Footer = () => {
 
@@ -18,7 +18,7 @@ const Footer = () => {
         </Link>
       </NextLink>
       */}
-      <NextLink href="/docs" passHref>
+      <NextLink target="_blank" href="https://docs.reliable.to/" passHref>
         <Link my={2} fontSize="sm" mr={[0, 4]} fontWeight="medium" color="gray.500">
           Documentation
         </Link>

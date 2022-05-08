@@ -1,6 +1,6 @@
 import React from 'react';
 import NextLink from 'next/link';
-import { Box, Link } from '@chakra-ui/core';
+import { Box, Link, useColorModeValue } from '@chakra-ui/react';
 
 import formatRelative from 'date-fns/formatRelative';
 import fr from 'date-fns/locale/fr';
@@ -23,11 +23,15 @@ const locale = {
 };
 
 const SiteTable = ({ sites }) => {
+
+  const bgHeadColor = useColorModeValue("rgb(247, 250, 252)", "rgb(19, 23, 32)");
+  const bgColor = useColorModeValue("rgb(253, 253, 253)", "rgb(24, 30, 41)");
+
   return (
     <Box overflowX="scroll">
       <Table w="full">
         <thead>
-          <Tr>
+          <Tr backgroundColor={bgHeadColor} >
             <Th>Nom</Th>
             <Th>Lien du site</Th>
             <Th>Lien des commentaires</Th>
@@ -37,7 +41,7 @@ const SiteTable = ({ sites }) => {
         </thead>
         <tbody>
           {sites.map((site, index) => (
-            <Box as="tr" key={site.id}>
+            <Box backgroundColor={bgColor} as="tr" key={site.id}>
               <Td>
                 <NextLink
                   href="/site/[siteId]"

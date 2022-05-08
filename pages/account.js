@@ -13,8 +13,9 @@ import {
   StatLabel,
   StatNumber,
   StatHelpText,
-  Tooltip
-} from '@chakra-ui/core';
+  Tooltip,
+  useColorModeValue
+} from '@chakra-ui/react';
 
 import { useAuth } from '@/lib/auth';
 import fetcher from '@/utils/fetcher';
@@ -26,14 +27,14 @@ const FeedbackUsage = () => {
   const { user } = useAuth();
   const { data } = useSWR(user ? ['/api/feedback', user.token] : null, fetcher);
   const nbFeedback = data?.feedback.length;
-  
-  return(
+
+  return (
     <StatGroup>
       <Stat>
         <StatLabel color="gray.700">Commentaires</StatLabel>
         <StatNumber fontWeight="medium">{nbFeedback}/∞</StatNumber>
         <StatHelpText>
-          Aucune limitation 
+          Aucune limitation
           <Tooltip placement="top" label="Cette fonctionnalité est suceptible de changer après la Alpha.">
             <Badge fontSize="0.6em">alpha</Badge>
           </Tooltip>
@@ -44,7 +45,7 @@ const FeedbackUsage = () => {
         <StatLabel color="gray.700">Sites</StatLabel>
         <StatNumber fontWeight="medium">1/∞</StatNumber>
         <StatHelpText>
-          Aucune limitation 
+          Aucune limitation
           <Tooltip placement="top" label="Cette fonctionnalité est suceptible de changer après la Alpha.">
             <Badge fontSize="0.6em">alpha</Badge>
           </Tooltip>
@@ -56,13 +57,12 @@ const FeedbackUsage = () => {
 
 const SettingsTable = ({ stripeRole, children }) => (
   <Box
-    backgroundColor="white"
+    backgroundColor={useColorModeValue("rgb(247, 250, 252)", "rgb(19, 23, 32)")}
     mt={8}
     borderRadius={[0, 8, 8]}
     boxShadow="0px 4px 10px rgba(0, 0, 0, 0.05)"
   >
     <Flex
-      backgroundColor="gray.50"
       borderTopLeftRadius={[0, 8, 8]}
       borderTopRightRadius={[0, 8, 8]}
       borderBottom="1px solid"
@@ -116,7 +116,7 @@ const Account = () => {
         <SettingsTable stripeRole={user?.stripeRole}>
           <FeedbackUsage />
           <Text my={4}>
-            Reliable utilise Stripe pour mettre à jour, modifier ou annuler votre abonnement. 
+            Reliable utilise Stripe pour mettre à jour, modifier ou annuler votre abonnement.
             Vous pouvez également mettre à jour les informations de la carte et l'adresse de
             facturation via le portail sécurisé.
           </Text>
@@ -129,10 +129,10 @@ const Account = () => {
                 setBillingLoading(true);
                 goToBillingPortal();
               }}
-              backgroundColor="gray.900"
               color="white"
               fontWeight="medium"
               ml={4}
+              backgroundColor="Black"
               isLoading={isBillingLoading}
               _hover={{ bg: 'gray.700' }}
               _active={{

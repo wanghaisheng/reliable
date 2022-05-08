@@ -7,7 +7,7 @@ import {
   Heading,
   Flex,
   Box
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 
 const FeedbackTableHeader = ({ siteName }) => (
   <Box mx={4}>

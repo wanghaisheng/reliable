@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { ThemeProvider, CSSReset } from '@chakra-ui/core';
-import { Global, css } from '@emotion/core';
+import { Global, css } from '@emotion/react';
+import { ChakraProvider } from '@chakra-ui/react'
 import { MDXProvider } from '@mdx-js/react';
 import { DefaultSeo } from 'next-seo';
 import Head from 'next/head';
@@ -24,7 +24,6 @@ const GlobalStyle = ({ children }) => {
       <Head>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
-      <CSSReset />
       <Global
         styles={css`
 
@@ -42,6 +41,14 @@ const GlobalStyle = ({ children }) => {
             scroll-behavior: smooth;
           }
 
+          .fa-google {
+            background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+          }
+
           img {
             /* For Opera and <= IE9, we need to add unselectable="on" attribute onto each element */
             /* Check this site for more details: http://help.dottoro.com/lhwdpnva.php */
@@ -53,6 +60,10 @@ const GlobalStyle = ({ children }) => {
             -webkit-user-drag: none; /* Prevents dragging of images/divs etc */
             user-drag: none;
             pointer-events: none;
+          }
+
+          .Docs{
+            margin-top: 180px;
           }
 
           .Docs p{
@@ -85,7 +96,7 @@ const GlobalStyle = ({ children }) => {
           .glassbg {
             background-color: rgba(255, 255, 255, .8);
             border-radius: 20px;
-            border: solid 2px rgba(255,255,255,1)
+            border: solid 2px rgba(255,255,255,.2)
           }
 
           /* if backdrop support: very transparent and blurred */
@@ -93,7 +104,7 @@ const GlobalStyle = ({ children }) => {
             .glassbg {
               backdrop-filter: saturate(180%) blur(5px);
               border-radius: 20px;
-              border: solid 2px rgba(255,255,255,1)
+              border: solid 2px rgba(255,255,255,;2)
             }
           }
         `}
@@ -113,7 +124,7 @@ const App = ({ Component, pageProps }) => {
   }, []);
 
   return (
-    <ThemeProvider theme={customTheme}>
+    <ChakraProvider theme={customTheme}>
       <AuthProvider>
         <MDXProvider components={MDXComponents}>
           <DefaultSeo {...SEO} />
@@ -121,7 +132,7 @@ const App = ({ Component, pageProps }) => {
           <Component {...pageProps} />
         </MDXProvider>
       </AuthProvider>
-    </ThemeProvider>
+    </ChakraProvider>
   );
 };
 

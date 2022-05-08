@@ -12,7 +12,7 @@ import {
   Code,
   Text,
   Link,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 
 const EditSiteModal = ({ siteId, children }) => {
   const toast = useToast();
